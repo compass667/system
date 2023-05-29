@@ -108,25 +108,25 @@ Content-Type: application/json
 - new_password(string, 必需): 新密码  
 
 ### 请求示例
-POST /register  
+POST admin/update  
 Content-Type: application/json  
 {  
   "user":"admin",  
-  "password":"password",  
-  "code":"114514"  
+  "old_password":"password",  
+  "new_password":"mew_password"  
 }  
 
 ### 响应结果
 {  
   "status": "success",  
-  "message": "User registration successful.",  
+  "message": "Password update successful.",  
   "data": {}  
 }  
 
 ### 错误处理
 {  
   "status": "error",  
-  "message": "Please provide a valid username, password and code.",  
+  "message": "Please provide a valid username and correct password.",    
   "data": {}  
 }  
 ## 用户注册接口
