@@ -630,5 +630,297 @@ Content-Type: application/json
   "status": "error",  
   "message": "",    
   "data": {}  
+}  
+
+## 参与情况添加接口
+
+### 描述
+该接口用于参与情况添加。
+
+### 接口参数
+- member_name(string, 必需): 成员名
+- date(string, 必需): 参与任务日期
+- work(string, 必需): 工作内容描述
+- reamrks(string, 必需): 备注，必需但可为空""
+
+### 请求示例
+POST /participation/add  
+Content-Type: application/json  
+{  
+  "member_name": "韩希先",  
+  "date": "2023-05-29",  
+  "work": "工作内容描述。",  
+  "remarks": "2人次。"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Reply addition successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 参与情况查询接口
+
+### 描述
+该接口用于参与情况查询，如果参数为"\*"就返回该参数为任意值的参与情况。
+
+### 接口参数
+- member_name(string, 必需): 成员名
+- start_date(string, 必需): 起始日期，如果为空就在前端填写"1900-01-01"
+- end_date(string, 必需): 终止日期，如果为空就在前端填写"2050-12-30"
+- work(string, 必需): 工作内容
+- reamrks(string, 必需): 备注
+- member_status(int, 必需): 查询的人员状态（1表示正常，2表示已经转出党支部，3表示两种状态的人员都需要查询）
+
+### 请求示例
+POST /participation/query  
+Content-Type: application/json  
+{  
+  "member_name": "\*",    
+  "start_date": "1900-01-01",  
+  "end_date": "2050-12-30",  
+  "status": 3,  
+  "member_status": 3,  
+  "reamrks": "\*"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "",  
+  "data": [  
+    {"id": 1, "member_name": "韩希先"， "date": "2023-05-05", "work": "工作内容1", "member_status": 1, "remarks": "备注1."},  
+    {"id": 2, "member_name": "韩希先"， "date": "2023-05-06", "work": "工作内容2", "member_status": 1, "remarks": "备注2."}   
+  ]   
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 参与情况删除接口
+
+### 描述
+该接口用于删除情况。
+
+### 接口参数
+- id(string, 必需): 回复情况id  
+
+### 请求示例
+POST /participation/delete   
+Content-Type: application/json  
+{  
+  "id": 2   
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Participantion delete successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 参与情况修改接口
+
+### 描述
+该接口用于修改回复情况详情，只能修改回复情况status属性。
+
+### 接口参数
+- id(int, 必需): 回复情况id    
+- new_status(int, 必需): 新的回复状态    
+
+### 请求示例
+POST reply/update  
+Content-Type: application/json  
+{  
+  "id": 1,  
+  "new_status: 4    
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Branch update successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",    
+  "data": {}  
+}  
+
+## 党员添加接口
+
+### 描述
+该接口用于党员添加。
+
+### 接口参数
+- name(string, 必需): 成员名
+- contact(string, 必需): 联系方式
+- tenure(string, 必需): 任职时间（xxxx-xx-xx）
+- dept_name(string, 必需): 部门
+- committee_name(string, 必需): 党委
+- branch_name(string, 必需): 支部
+- status(string, 必需): 当前人员状态（1表示正常，2表示已经转出党支部）
+
+### 请求示例
+POST /member/add  
+Content-Type: application/json  
+{  
+  "member_name": "韩希先",  
+  "contact": "13800000000",  
+  "tenure": "2023-05-29",  
+  "dept_name": "海工",  
+  "committee_name": "哈工大",  
+  "branch_name": "教师第一党支部",   
+  "status": 1
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Participation addition successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 人员查询接口
+
+### 描述
+该接口用于人员查询，如果参数为"\*"就返回该参数为任意值的人员信息。
+
+### 接口参数
+- name(string, 必需): 成员名
+- contact(string, 必需): 联系方式
+- start_date(string, 必需): 起始时间（xxxx-xx-xx）
+- end_date(string, 必需): 终止时间（xxxx-xx-xx）
+- dept_name(string, 必需): 部门
+- committee_name(string, 必需): 党委
+- branch_name(string, 必需): 支部
+- status(int, 必需): 查询的人员状态（1表示正常，2表示已经转出党支部，3表示两种状态的人员都需要查询）
+
+### 请求示例
+POST /member/query  
+Content-Type: application/json  
+{  
+  "member_name": "\*", 
+  "contact": "\*"
+  "start_date": "1900-01-01",  
+  "end_date": "2050-12-30",  
+  "dept_name": "\*", 
+  "committee_name": "\*", 
+  "branch_name": "教师第一党支部", 
+  "status": 3,  
+  "reamrks": "\*"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "",  
+  "data": [  
+    {"id": 1, "member_name": "韩希先"，contact:"13000000000", "tenure": "2023-05-05", "dept_name": "海工", "committee_name": "哈工大", "branch_name": "教师第一党支部", "status": 1},  
+    {"id": 2, "member_name": "韩希先"，contact:"13800000000", "tenure": "2023-05-06", "dept_name": "海工", "committee_name": "哈工大", "branch_name": "教师第一党支部", "status": 1},  
+  ]   
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 参与情况删除接口
+
+### 描述
+该接口用于删除情况。
+
+### 接口参数
+- id(string, 必需): 党员id  
+
+### 请求示例
+POST /member/delete   
+Content-Type: application/json  
+{  
+  "id": 1     
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Member delete successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 参与情况修改接口
+
+### 描述
+该接口用于修改党员信息。
+
+### 接口参数
+- id(int, 必需): 党员id    
+- new_name(string, 必需): 成员名
+- new_contact(string, 必需): 联系方式
+- start_date(string, 必需): 起始时间（xxxx-xx-xx）
+- end_date(string, 必需): 终止时间（xxxx-xx-xx）
+- dept_name(string, 必需): 部门
+- committee_name(string, 必需): 党委
+- branch_name(string, 必需): 支部
+- status(int, 必需): 查询的人员状态（1表示正常，2表示已经转出党支部，3表示两种状态的人员都需要查询）
+
+### 请求示例
+POST reply/update  
+Content-Type: application/json  
+{  
+  "id": 1,  
+  "new_status: 4    
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Branch update successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",    
+  "data": {}  
 } 
 
