@@ -353,7 +353,7 @@ Content-Type: application/json
 - new_committee_name(string, 必需): 新党委    
 
 ### 请求示例
-POST admin/update  
+POST branch/update  
 Content-Type: application/json  
 {  
   "old_committee_name":"哈工大",  
