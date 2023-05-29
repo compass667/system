@@ -474,7 +474,7 @@ Content-Type: application/json
 - new_branch_name(string, 必需): 新支部    
 
 ### 请求示例
-POST admin/update  
+POST branch/update  
 Content-Type: application/json  
 {  
   "old_branch_name":"哈工大",  
