@@ -164,7 +164,7 @@ Content-Type: application/json
 ## 部门查询接口
 
 ### 描述
-该接口用于部门查询，如果参数为"*"就返回所有的部门，否则就返回查询的部门。
+该接口用于部门查询，如果参数为"\*"就返回所有的部门，否则就返回查询的部门。
 
 ### 接口参数
 - dept_name(string, 必需): 部门名
@@ -173,7 +173,7 @@ Content-Type: application/json
 POST /dept/query  
 Content-Type: application/json  
 {  
-  "dept_name":"*"    
+  "dept_name":"\*"    
 }  
 
 ### 响应结果
@@ -181,8 +181,8 @@ Content-Type: application/json
   "status": "success",  
   "message": "",  
   "data": [  
-    {"dept_name":"海工"},  
-    {"dept_name":"计科"}  
+    {"id": 1, "dept_name":"海工"},  
+    {"id": 2, "dept_name":"计科"}  
   ]   
 }  
 
@@ -199,13 +199,13 @@ Content-Type: application/json
 该接口用于删除部门。
 
 ### 接口参数
-- dept_name(string, 必需): 部门名称
+- id(string, 必需): 部门id
 
 ### 请求示例
 POST /dept/delete   
 Content-Type: application/json  
 {  
-  "dept_name":"海工"  
+  "id": 1  
 }  
 
 ### 响应结果
@@ -228,14 +228,14 @@ Content-Type: application/json
 该接口用于修改部门名称。
 
 ### 接口参数
-- old_dept_name(string, 必需): 旧部门    
-- new_dept_name(string, 必需): 新部门    
+- id(int, 必需): 部门id    
+- new_dept_name(string, 必需): 部门新名称    
 
 ### 请求示例
 POST dept/update  
 Content-Type: application/json  
 {  
-  "old_dept_name":"海工",  
+  "id": 1,  
   "new_dept_name":"计科"  
 }  
 
@@ -285,7 +285,7 @@ Content-Type: application/json
 ## 党委查询接口
 
 ### 描述
-该接口用于党委查询，如果参数为"*"就返回所有的党委，否则就返回查询的党委。
+该接口用于党委查询，如果参数为"\*"就返回所有的党委，否则就返回查询的党委。
 
 ### 接口参数
 - committee_name(string, 必需): 党委名
@@ -294,7 +294,7 @@ Content-Type: application/json
 POST /committee/query  
 Content-Type: application/json  
 {  
-  "committee_name":"*"    
+  "committee_name":"\*"    
 }  
 
 ### 响应结果
@@ -302,8 +302,8 @@ Content-Type: application/json
   "status": "success",  
   "message": "",  
   "data": [  
-    {"committee_name":"哈工大"},  
-    {"committee_name":"双创园"}  
+    {"id": 1, "committee_name":"哈工大"},  
+    {"id": 2, "committee_name":"双创园"}  
   ]   
 }  
 
@@ -320,13 +320,13 @@ Content-Type: application/json
 该接口用于删除党委。
 
 ### 接口参数
-- committee_name(string, 必需): 党委名称
+- id(int, 必需): 党委id  
 
 ### 请求示例
 POST /committee/delete   
-Content-Type: application/json  
+Content-Type: application/json   
 {  
-  "committee_name":"海工"  
+  "id": 1    
 }  
 
 ### 响应结果
@@ -349,15 +349,15 @@ Content-Type: application/json
 该接口用于修改党委名称。
 
 ### 接口参数
-- old_committee_name(string, 必需): 旧党委    
-- new_committee_name(string, 必需): 新党委    
+- id(int, 必需): 党委id    
+- new_committee_name(string, 必需): 新党委名称      
 
 ### 请求示例
 POST committee/update  
 Content-Type: application/json  
 {  
-  "old_committee_name":"哈工大",  
-  "new_committee_name":"双创园"  
+  "id": 1,  
+  "new_committee_name": "双创园"  
 }  
 
 ### 响应结果
@@ -406,7 +406,7 @@ Content-Type: application/json
 ## 支部查询接口
 
 ### 描述
-该接口用于支部查询，如果参数为"*"就返回所有的支部，否则就返回查询的支部。
+该接口用于支部查询，如果参数为"\*"就返回所有的支部，否则就返回查询的支部。
 
 ### 接口参数
 - branch_name(string, 必需): 支部名
@@ -415,7 +415,7 @@ Content-Type: application/json
 POST /branch/query  
 Content-Type: application/json  
 {  
-  "branch_name":"*"    
+  "branch_name":"\*"    
 }  
 
 ### 响应结果
@@ -423,8 +423,8 @@ Content-Type: application/json
   "status": "success",  
   "message": "",  
   "data": [  
-    {"branch_name":"哈工大"},  
-    {"branch_name":"双创园"}  
+    {"id": 1, "branch_name":"哈工大"},  
+    {"id": 2, "branch_name":"双创园"}  
   ]   
 }  
 
@@ -441,13 +441,13 @@ Content-Type: application/json
 该接口用于删除支部。
 
 ### 接口参数
-- branch_name(string, 必需): 支部名称
+- id(string, 必需): 支部id
 
 ### 请求示例
 POST /branch/delete   
 Content-Type: application/json  
 {  
-  "branch_name":"海工"  
+  "id": 1  
 }  
 
 ### 响应结果
@@ -470,14 +470,14 @@ Content-Type: application/json
 该接口用于修改支部名称。
 
 ### 接口参数
-- old_branch_name(string, 必需): 旧支部    
-- new_branch_name(string, 必需): 新支部    
+- id(int, 必需): 支部id    
+- new_branch_name(string, 必需): 新支部名称    
 
 ### 请求示例
 POST branch/update  
 Content-Type: application/json  
 {  
-  "old_branch_name":"哈工大",  
+  "id": 1,  
   "new_branch_name":"双创园"  
 }  
 
@@ -539,7 +539,7 @@ Content-Type: application/json
 - member_name(string, 必需): 成员名
 - start_date(string, 必需): 起始日期，如果为空就在前端填写"1900-01-01"
 - end_date(string, 必需): 终止日期，如果为空就在前端填写"2050-12-30"
-- status(int, 必需): 状态（0，1，2表示回复、未及时回复、未回复）
+- status(int, 必需): 回复状态（1，2，4表示回复、未及时回复、未回复）
 - reamrks(string, 必需): 备注
 - member_status(int, 必需): 查询的人员状态（1表示正常，2表示已经转出党支部，3表示两种状态的人员都需要查询）
 
@@ -547,7 +547,12 @@ Content-Type: application/json
 POST /reply/query  
 Content-Type: application/json  
 {  
-  "branch_name":"\*"    
+  "member_name": "\*",    
+  "start_date": "1900-01-01",  
+  "end_date": "2050-12-30",  
+  "status": 3,  
+  "member_status": 3,  
+  "reamrks": "\*"  
 }  
 
 ### 响应结果
@@ -555,8 +560,8 @@ Content-Type: application/json
   "status": "success",  
   "message": "",  
   "data": [  
-    {"branch_name":"哈工大"},  
-    {"branch_name":"双创园"}  
+    {"id": 1, "member_name": "韩希先"， "date": "2023-05-05", "status": 1, "member_status": 1, "remarks": "备注1."},  
+    {"id": 2, "member_name": "韩希先"， "date": "2023-05-06", "status": 2, "member_status": 1, "remarks": "备注2."}   
   ]   
 }  
 
@@ -570,16 +575,16 @@ Content-Type: application/json
 ## 回复情况删除接口
 
 ### 描述
-该接口用于删除支部。
+该接口用于删除回复。
 
 ### 接口参数
-- branch_name(string, 必需): 支部名称
+- id(string, 必需): 回复情况id  
 
 ### 请求示例
-POST /branch/delete   
+POST /reply/delete   
 Content-Type: application/json  
 {  
-  "branch_name":"海工"  
+  "id": 2   
 }  
 
 ### 响应结果
@@ -599,18 +604,18 @@ Content-Type: application/json
 ## 回复情况修改接口
 
 ### 描述
-该接口用于修改支部名称。
+该接口用于修改回复情况详情，只能修改回复情况status属性。
 
 ### 接口参数
-- old_branch_name(string, 必需): 旧支部    
-- new_branch_name(string, 必需): 新支部    
+- id(int, 必需): 回复情况id    
+- new_status(int, 必需): 新的回复状态    
 
 ### 请求示例
-POST branch/update  
+POST reply/update  
 Content-Type: application/json  
 {  
-  "old_branch_name":"哈工大",  
-  "new_branch_name":"双创园"  
+  "id": 1,  
+  "new_status: 4    
 }  
 
 ### 响应结果
