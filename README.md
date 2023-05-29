@@ -8,10 +8,14 @@
 ### 接口参数
 - user(string, 必需): 用户名
 - password(string, 必需): 密码
-- code(string, 必需): 只有输入正确的激活码才能注册
+- code(string, 必需): 只有输入正确的激活码才能注册，该激活码由已存在的管理员生成。
 
-### 接口终端点
+### 请求示例
 POST /register
 Content-Type: application/json
 {
+  "user":"admin",
+  "password":"password",
+  "code":"114514"
+}
   
