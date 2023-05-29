@@ -14,9 +14,9 @@
 POST /register  
 Content-Type: application/json  
 
-{
+{  
   "user":"admin",  
   "password":"password",  
   "code":"114514"  
-}
+}  
   
