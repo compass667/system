@@ -110,7 +110,7 @@ Content-Type: application/json
 - new_password(string, 必需): 新密码  
 
 ### 请求示例
-POST admin/update  
+POST /admin/update  
 Content-Type: application/json  
 {  
   "user":"admin",  
@@ -229,14 +229,14 @@ Content-Type: application/json
 
 ### 接口参数
 - id(int, 必需): 部门id    
-- new_dept_name(string, 必需): 部门新名称    
+- dept_name(string, 必需): 部门新名称    
 
 ### 请求示例
-POST dept/update  
+POST /dept/update  
 Content-Type: application/json  
 {  
   "id": 1,  
-  "new_dept_name":"计科"  
+  "dept_name":"计科"  
 }  
 
 ### 响应结果
@@ -350,14 +350,14 @@ Content-Type: application/json
 
 ### 接口参数
 - id(int, 必需): 党委id    
-- new_committee_name(string, 必需): 新党委名称      
+- committee_name(string, 必需): 新党委名称      
 
 ### 请求示例
-POST committee/update  
+POST /committee/update  
 Content-Type: application/json  
 {  
   "id": 1,  
-  "new_committee_name": "双创园"  
+  "committee_name": "双创园"  
 }  
 
 ### 响应结果
@@ -471,14 +471,14 @@ Content-Type: application/json
 
 ### 接口参数
 - id(int, 必需): 支部id    
-- new_branch_name(string, 必需): 新支部名称    
+- branch_name(string, 必需): 新支部名称    
 
 ### 请求示例
-POST branch/update  
+POST /branch/update  
 Content-Type: application/json  
 {  
   "id": 1,  
-  "new_branch_name":"双创园"  
+  "branch_name":"双创园"  
 }  
 
 ### 响应结果
@@ -608,14 +608,14 @@ Content-Type: application/json
 
 ### 接口参数
 - id(int, 必需): 回复情况id    
-- new_status(int, 必需): 新的回复状态    
+- status(int, 必需): 新的回复状态    
 
 ### 请求示例
-POST reply/update  
+POST /reply/update  
 Content-Type: application/json  
 {  
   "id": 1,  
-  "new_status: 4    
+  "status: 4    
 }  
 
 ### 响应结果
@@ -727,7 +727,7 @@ Content-Type: application/json
 ### 响应结果
 {  
   "status": "success",  
-  "message": "Participantion delete successful.",  
+  "message": "Participation delete successful.",  
   "data": {}  
 }  
 
@@ -745,14 +745,14 @@ Content-Type: application/json
 
 ### 接口参数
 - id(int, 必需): 回复情况id    
-- new_status(int, 必需): 新的回复状态    
+- status(int, 必需): 新的回复状态    
 
 ### 请求示例
-POST reply/update  
+POST /participation/update  
 Content-Type: application/json  
 {  
   "id": 1,  
-  "new_status: 4    
+  "status: 4    
 }  
 
 ### 响应结果
@@ -893,27 +893,32 @@ Content-Type: application/json
 
 ### 接口参数
 - id(int, 必需): 党员id    
-- new_name(string, 必需): 成员名
-- new_contact(string, 必需): 联系方式
-- start_date(string, 必需): 起始时间（xxxx-xx-xx）
-- end_date(string, 必需): 终止时间（xxxx-xx-xx）
+- name(string, 必需): 成员名
+- contact(string, 必需): 联系方式
+- tenure(string, 必需): 任职日期
 - dept_name(string, 必需): 部门
 - committee_name(string, 必需): 党委
 - branch_name(string, 必需): 支部
-- status(int, 必需): 查询的人员状态（1表示正常，2表示已经转出党支部，3表示两种状态的人员都需要查询）
+- status(int, 必需): 人员状态
 
 ### 请求示例
-POST reply/update  
+POST /member/update  
 Content-Type: application/json  
 {  
   "id": 1,  
-  "new_status: 4    
+  "name": "韩希先",  
+  "contact": "18043800000",  
+  "tenture": "2023-01-01",  
+  "dept_name": "计算机",  
+  "committee_name": "哈工大",  
+  "branch_name": "教师第一党支部",  
+  "status: 1    
 }  
 
 ### 响应结果
 {  
   "status": "success",  
-  "message": "Branch update successful.",  
+  "message": "Member update successful.",  
   "data": {}  
 }  
 
