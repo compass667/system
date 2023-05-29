@@ -232,7 +232,7 @@ Content-Type: application/json
 - new_dept_name(string, 必需): 新部门    
 
 ### 请求示例
-POST admin/update  
+POST dept/update  
 Content-Type: application/json  
 {  
   "old_dept_name":"海工",  
@@ -253,25 +253,25 @@ Content-Type: application/json
   "data": {}  
 }  
 
-## 部门添加接口
+## 党委添加接口
 
 ### 描述
-该接口用于部门添加。
+该接口用于党委添加。
 
 ### 接口参数
-- dept_name(string, 必需): 部门名称
+- committee_name(string, 必需): 党委名称
 
 ### 请求示例
-POST /dept/add  
+POST /committee/add  
 Content-Type: application/json  
 {  
-  "dept_name":"海工",   
+  "committee_name":"海工",   
 }  
 
 ### 响应结果
 {  
   "status": "success",  
-  "message": "Department addition successful.",  
+  "message": "Committee addition successful.",  
   "data": {}  
 }  
 
@@ -353,7 +353,7 @@ Content-Type: application/json
 - new_committee_name(string, 必需): 新党委    
 
 ### 请求示例
-POST branch/update  
+POST committee/update  
 Content-Type: application/json  
 {  
   "old_committee_name":"哈工大",  
@@ -374,6 +374,34 @@ Content-Type: application/json
   "data": {}  
 } 
 
+## 支部添加接口
+
+### 描述
+该接口用于支部添加。
+
+### 接口参数
+- branch_name(string, 必需): 支部名称
+
+### 请求示例
+POST /branch/add  
+Content-Type: application/json  
+{  
+  "branch_name":"海工",   
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Committee addition successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
 
 ## 支部查询接口
 
