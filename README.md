@@ -502,13 +502,16 @@ Content-Type: application/json
 
 ### 接口参数
 - member_name(string, 必需): 成员名
+- date(string, 必需): 发布任务时间
 - status(int, 必需): 状态（0，1，2表示回复、未及时回复）
+- reamrks(string, 必需): 备注
 
 ### 请求示例
-POST /branch/add  
+POST /reply/add  
 Content-Type: application/json  
 {  
-  "branch_name":"海工",   
+  "member_name":"韩希先",  
+  "date":
 }  
 
 ### 响应结果
@@ -525,7 +528,7 @@ Content-Type: application/json
   "data": {}  
 }  
 
-## 支部查询接口
+## 回复情况查询接口
 
 ### 描述
 该接口用于支部查询，如果参数为"all"就返回所有的支部，否则就返回查询的支部。
@@ -557,7 +560,7 @@ Content-Type: application/json
   "data": {}  
 }  
 
-## 支部删除接口
+## 回复情况删除接口
 
 ### 描述
 该接口用于删除支部。
@@ -586,7 +589,7 @@ Content-Type: application/json
   "data": {}  
 }  
 
-## 支部修改接口
+## 回复情况修改接口
 
 ### 描述
 该接口用于修改支部名称。
