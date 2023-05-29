@@ -13,10 +13,24 @@
 ### 请求示例
 POST /register  
 Content-Type: application/json  
-
 {  
   "user":"admin",  
   "password":"password",  
   "code":"114514"  
 }  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "User registration successful.",  
+  "data": {}
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "Please provide a valid username, password and code.",  
+  "data": {}
+}  
+
   
