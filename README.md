@@ -23,14 +23,14 @@ Content-Type: application/json
 {  
   "status": "success",  
   "message": "User registration successful.",  
-  "data": {}
+  "data": {}  
 }  
 
 ### 错误处理
 {  
   "status": "error",  
   "message": "Please provide a valid username, password and code.",  
-  "data": {}
+  "data": {}  
 }  
 
   
