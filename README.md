@@ -494,4 +494,126 @@ Content-Type: application/json
   "message": "",    
   "data": {}  
 } 
-  
+
+## 回复情况添加接口
+
+### 描述
+该接口用于回复情况添加。
+
+### 接口参数
+- member_name(string, 必需): 成员名
+- status(int, 必需): 状态（0，1，2表示回复、未及时回复）
+
+### 请求示例
+POST /branch/add  
+Content-Type: application/json  
+{  
+  "branch_name":"海工",   
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Committee addition successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 支部查询接口
+
+### 描述
+该接口用于支部查询，如果参数为"all"就返回所有的支部，否则就返回查询的支部。
+
+### 接口参数
+- branch_name(string, 必需): 支部名
+
+### 请求示例
+POST /branch/query  
+Content-Type: application/json  
+{  
+  "branch_name":"all"    
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "",  
+  "data": [  
+    {"branch_name":"哈工大"},  
+    {"branch_name":"双创园"}  
+  ]   
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 支部删除接口
+
+### 描述
+该接口用于删除支部。
+
+### 接口参数
+- branch_name(string, 必需): 支部名称
+
+### 请求示例
+POST /branch/delete   
+Content-Type: application/json  
+{  
+  "branch_name":"海工"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Branch delete successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 支部修改接口
+
+### 描述
+该接口用于修改支部名称。
+
+### 接口参数
+- old_branch_name(string, 必需): 旧支部    
+- new_branch_name(string, 必需): 新支部    
+
+### 请求示例
+POST branch/update  
+Content-Type: application/json  
+{  
+  "old_branch_name":"哈工大",  
+  "new_branch_name":"双创园"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Branch update successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",    
+  "data": {}  
+} 
+
