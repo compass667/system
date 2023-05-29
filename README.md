@@ -164,7 +164,7 @@ Content-Type: application/json
 ## 部门查询接口
 
 ### 描述
-该接口用于部门查询，如果参数为"all"就返回所有的部门，否则就返回查询的部门。
+该接口用于部门查询，如果参数为"*"就返回所有的部门，否则就返回查询的部门。
 
 ### 接口参数
 - dept_name(string, 必需): 部门名
@@ -173,7 +173,7 @@ Content-Type: application/json
 POST /dept/query  
 Content-Type: application/json  
 {  
-  "dept_name":"all"    
+  "dept_name":"*"    
 }  
 
 ### 响应结果
@@ -285,7 +285,7 @@ Content-Type: application/json
 ## 党委查询接口
 
 ### 描述
-该接口用于党委查询，如果参数为"all"就返回所有的党委，否则就返回查询的党委。
+该接口用于党委查询，如果参数为"*"就返回所有的党委，否则就返回查询的党委。
 
 ### 接口参数
 - committee_name(string, 必需): 党委名
@@ -294,7 +294,7 @@ Content-Type: application/json
 POST /committee/query  
 Content-Type: application/json  
 {  
-  "committee_name":"all"    
+  "committee_name":"*"    
 }  
 
 ### 响应结果
@@ -406,7 +406,7 @@ Content-Type: application/json
 ## 支部查询接口
 
 ### 描述
-该接口用于支部查询，如果参数为"all"就返回所有的支部，否则就返回查询的支部。
+该接口用于支部查询，如果参数为"*"就返回所有的支部，否则就返回查询的支部。
 
 ### 接口参数
 - branch_name(string, 必需): 支部名
@@ -415,7 +415,7 @@ Content-Type: application/json
 POST /branch/query  
 Content-Type: application/json  
 {  
-  "branch_name":"all"    
+  "branch_name":"*"    
 }  
 
 ### 响应结果
@@ -502,22 +502,24 @@ Content-Type: application/json
 
 ### 接口参数
 - member_name(string, 必需): 成员名
-- date(string, 必需): 发布任务时间
-- status(int, 必需): 状态（0，1，2表示回复、未及时回复）
-- reamrks(string, 必需): 备注
+- date(string, 必需): 发布任务日期
+- status(int, 必需): 状态（0，1，2表示回复、未及时回复、未回复）
+- reamrks(string, 必需): 备注，必需但可为空""
 
 ### 请求示例
 POST /reply/add  
 Content-Type: application/json  
 {  
-  "member_name":"韩希先",  
-  "date":
+  "member_name": "韩希先",  
+  "date": "2023-05-29",  
+  "status": 0,  
+  "remarks": "及时回复了。"
 }  
 
 ### 响应结果
 {  
   "status": "success",  
-  "message": "Committee addition successful.",  
+  "message": "Reply addition successful.",  
   "data": {}  
 }  
 
@@ -531,16 +533,21 @@ Content-Type: application/json
 ## 回复情况查询接口
 
 ### 描述
-该接口用于支部查询，如果参数为"all"就返回所有的支部，否则就返回查询的支部。
+该接口用于回复情况查询，如果参数为"\*"就返回该参数为任意值的回复情况。
 
 ### 接口参数
-- branch_name(string, 必需): 支部名
+- member_name(string, 必需): 成员名
+- start_date(string, 必需): 起始日期，如果为空就在前端填写"1900-01-01"
+- end_date(string, 必需): 终止日期，如果为空就在前端填写"2050-12-30"
+- status(int, 必需): 状态（0，1，2表示回复、未及时回复、未回复）
+- reamrks(string, 必需): 备注
+- member_status(int, 必需): 查询的人员状态（1表示正常，2表示已经转出党支部，3表示两种状态的人员都需要查询）
 
 ### 请求示例
-POST /branch/query  
+POST /reply/query  
 Content-Type: application/json  
 {  
-  "branch_name":"all"    
+  "branch_name":"\*"    
 }  
 
 ### 响应结果
