@@ -253,4 +253,217 @@ Content-Type: application/json
   "data": {}  
 }  
 
+## 部门添加接口
+
+### 描述
+该接口用于部门添加。
+
+### 接口参数
+- dept_name(string, 必需): 部门名称
+
+### 请求示例
+POST /dept/add  
+Content-Type: application/json  
+{  
+  "dept_name":"海工",   
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Department addition successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 党委查询接口
+
+### 描述
+该接口用于党委查询，如果参数为"all"就返回所有的党委，否则就返回查询的党委。
+
+### 接口参数
+- committee_name(string, 必需): 党委名
+
+### 请求示例
+POST /committee/query  
+Content-Type: application/json  
+{  
+  "committee_name":"all"    
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "",  
+  "data": [  
+    {"committee_name":"哈工大"},  
+    {"committee_name":"双创园"}  
+  ]   
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 党委删除接口
+
+### 描述
+该接口用于删除党委。
+
+### 接口参数
+- committee_name(string, 必需): 党委名称
+
+### 请求示例
+POST /committee/delete   
+Content-Type: application/json  
+{  
+  "committee_name":"海工"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Committee delete successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 党委修改接口
+
+### 描述
+该接口用于修改党委名称。
+
+### 接口参数
+- old_committee_name(string, 必需): 旧党委    
+- new_committee_name(string, 必需): 新党委    
+
+### 请求示例
+POST admin/update  
+Content-Type: application/json  
+{  
+  "old_committee_name":"哈工大",  
+  "new_committee_name":"双创园"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Committee update successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",    
+  "data": {}  
+} 
+
+
+## 支部查询接口
+
+### 描述
+该接口用于支部查询，如果参数为"all"就返回所有的支部，否则就返回查询的支部。
+
+### 接口参数
+- branch_name(string, 必需): 支部名
+
+### 请求示例
+POST /branch/query  
+Content-Type: application/json  
+{  
+  "branch_name":"all"    
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "",  
+  "data": [  
+    {"branch_name":"哈工大"},  
+    {"branch_name":"双创园"}  
+  ]   
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 支部删除接口
+
+### 描述
+该接口用于删除支部。
+
+### 接口参数
+- branch_name(string, 必需): 支部名称
+
+### 请求示例
+POST /branch/delete   
+Content-Type: application/json  
+{  
+  "branch_name":"海工"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Branch delete successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",  
+  "data": {}  
+}  
+
+## 支部修改接口
+
+### 描述
+该接口用于修改支部名称。
+
+### 接口参数
+- old_branch_name(string, 必需): 旧支部    
+- new_branch_name(string, 必需): 新支部    
+
+### 请求示例
+POST admin/update  
+Content-Type: application/json  
+{  
+  "old_branch_name":"哈工大",  
+  "new_branch_name":"双创园"  
+}  
+
+### 响应结果
+{  
+  "status": "success",  
+  "message": "Branch update successful.",  
+  "data": {}  
+}  
+
+### 错误处理
+{  
+  "status": "error",  
+  "message": "",    
+  "data": {}  
+} 
   
