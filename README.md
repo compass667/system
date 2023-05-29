@@ -8,7 +8,7 @@
 ### 接口参数
 - user(string, 必需): 用户名
 - password(string, 必需): 密码
-- code()
+- code(string, 必需): 只有输入正确的激活码才能注册
 
 ### 接口终端点
 POST /register
